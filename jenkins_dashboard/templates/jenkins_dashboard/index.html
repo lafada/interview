@@ -1,0 +1,24 @@
+{% load static %}
+<link media="all" href="{% static 'nvd3/build/nv.d3.css' %}" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src='{% static 'd3/d3.min.js' %}'></script>
+<script type="text/javascript" src='{% static 'nvd3/build/nv.d3.min.js' %}'></script>
+
+{% load nvd3_tags %}
+<head>
+        {% load_chart charttype chartdata "multibarchart_container" %}
+</head>
+<body>
+    <h1>Enter your details</h1>
+
+    <form action="{% url 'jenkins_dashboard:submit_job' %}" method="post">
+        {% csrf_token %}
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" id="firstname" />
+        <br/>
+        <label for="lastname">Lastname Name:</label>
+        <input type="text" name="lastname" id="lastname" />
+        <br/>
+        <input type="submit" value="Submit Job" />
+    </form>
+    {% include_container "multibarchart_container" 400 600 %}
+</body>
