@@ -1,0 +1,20 @@
+[STEP 1]
+Message=Copy files…
+Action=copy
+Srcfile=file1.txt
+Destfile=file2.txt
+Overwrite=y
+
+[STEP 2]
+Message=Update IP address in the file
+Action=run
+Program=ls
+Wait=3
+
+[STEP 3]
+Message=Update TL1
+Action=run
+Program=ls
+Wait=1
+
+[END]
